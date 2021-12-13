@@ -3,18 +3,12 @@
  */
 package br.edu.ifrn.sga.contactservice;
 
-import java.util.Optional;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
 /**
  * @author Lucas Mariano
@@ -60,16 +54,6 @@ public class ContatoRequest {
 		this.email = umEmail;
 		this.assunto = umAssunto;
 		this.mensagem = umaMensagem;
-	}
-
-	public Optional<String> toJson() {
-		try {
-			ObjectMapper objectMapper = new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
-			return Optional.of(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this));
-		} catch (JsonProcessingException exception) {
-			exception.printStackTrace();
-		}
-		return Optional.empty();
 	}
 
 	public String getNome() {
