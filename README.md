@@ -17,10 +17,10 @@ Os dados para contato são:
 
 | Propriedade | Descrição                       | Restrições  |
 |-------------|---------------------------------|-------------|
-| nome        | nome do contatante              | obrigatório |
-| email       | email do contatante             | obrigatório |
-| assunto     | assunto do contato              | obrigatório |
-| mensagem    | conteúdo da mensagem de contato | obrigatório |
+| nome        | nome do contatante              | obrigatório, mínimo 3 e máximo 100 caracteres |
+| email       | email do contatante             | obrigatório, formato válido de email e máximo 100 caracteres |
+| assunto     | assunto do contato              | obrigatório, mínimo 3 e máximo 100 caracteres |
+| mensagem    | conteúdo da mensagem de contato | obrigatório, mínimo 10 e máximo 1000 caracteres |
 
 Uma vez recebida uma solicitação de contato, a aplicação enviará um email para a suposta empresa. A aplicação não precisa implementar a lógica relacionada com o envio de email, ao invés disso, deverá delegar essa responsabilidade para um serviço especializado (externo à aplicação).
 
