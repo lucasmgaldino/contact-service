@@ -16,6 +16,8 @@
 	<description>Projeto para demonstrar a integração com serviços de envio de email.</description>
 	<properties>
 		<java.version>11</java.version>
+		<!-- Para corrigir vulnerabilidade: https://spring.io/blog/2021/12/10/log4j2-vulnerability-and-spring-boot  -->
+		<log4j2.version>2.16.0</log4j2.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,6 +28,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 		<dependency>

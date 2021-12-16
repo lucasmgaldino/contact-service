@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.edu.ifrn.sga.contactservice.controllers;
+package br.edu.ifrn.sga.contactservice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,9 +42,7 @@ public class ContatoControllerTest {
 				.perform(MockMvcRequestBuilders.post(ContatoControllerTest.ENDPOINT_API_CONTATO)
 						.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(MockMvcResultMatchers.status().isBadRequest())
-			.andDo(handler -> {
-				System.out.println(handler.getResponse().getContentAsString());
-			});
+			.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@Test
@@ -54,9 +52,7 @@ public class ContatoControllerTest {
 		this.mockMvc
 				.perform(MockMvcRequestBuilders.post(ContatoControllerTest.ENDPOINT_API_CONTATO)
 						.content(montarPayloadJson(mapa)))
-				.andExpect(MockMvcResultMatchers.status().isUnsupportedMediaType()).andDo(handler -> {
-					System.out.println(handler.getResponse().getContentAsString());
-				});
+				.andExpect(MockMvcResultMatchers.status().isUnsupportedMediaType()).andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 
 	@DisplayName("deve invalidar a tentativa de contato com o body do request vazio.")
@@ -69,9 +65,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(body))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve invalidar a tentativa de contato caso seja informado um nome de remetente inválido")
@@ -87,9 +81,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve invalidar a tentativa de contato caso seja informado um email de remetente inválido")
@@ -105,9 +97,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve invalidar a tentativa de contato caso não seja informado um assunto válido")
@@ -123,9 +113,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve invalidar a tentativa de contato caso não seja informada uma mensagem")
@@ -141,9 +129,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve invalidar a tentativa de contato caso o conteúdo da mensagem seja muito longo")
@@ -165,9 +151,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	@DisplayName("deve validar a tentativa de contato")
@@ -180,9 +164,7 @@ public class ContatoControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(montarPayloadJson(mapa)))
 		.andExpect(MockMvcResultMatchers.status().isOk())
-		.andDo(handler -> {
-			System.out.println(handler.getResponse().getContentAsString());
-		});
+		.andDo(handler -> System.out.println(handler.getResponse().getContentAsString()));
 	}
 	
 	/**

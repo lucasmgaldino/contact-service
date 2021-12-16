@@ -8,27 +8,31 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import lombok.Getter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
 /**
  * @author Lucas Mariano
  *
  */
+@Getter
+@ToString
 public class ContatoRequest {
 
 	@NotBlank
 	@Length(min = 3, max = 100)
-	private String nome;
+	private final String nome;
 	@NotEmpty
 	@Email
 	@Length(max = 100)
-	private String email;
+	private final String email;
 	@NotBlank
 	@Length(min = 3, max = 100)
-	private String assunto;
+	private final String assunto;
 	@NotBlank
 	@Length(min = 10, max = 1000)
-	private String mensagem;
+	private final String mensagem;
 
 	/**
 	 * Contrutor.
@@ -54,28 +58,6 @@ public class ContatoRequest {
 		this.email = umEmail;
 		this.assunto = umAssunto;
 		this.mensagem = umaMensagem;
-	}
-
-	public String getNome() {
-		return this.nome;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public String getAssunto() {
-		return this.assunto;
-	}
-
-	public String getMensagem() {
-		return this.mensagem;
-	}
-
-	@Override
-	public String toString() {
-		return "ContatoRequest [nome=" + this.nome + ", email=" + this.email + ", assunto=" + this.assunto
-				+ ", mensagem=" + this.mensagem + "]";
 	}
 
 }
