@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
@@ -20,16 +21,23 @@ import org.hibernate.validator.constraints.Length;
 @ToString
 public class ContatoRequest {
 
+	@ApiModelProperty(notes = "Nome completo do contactante. (Min. 3 e Máx. 100 caracteres.)", required = true)
 	@NotBlank
 	@Length(min = 3, max = 100)
 	private final String nome;
+
+	@ApiModelProperty(notes = "Email do contactante. (Máx. 100 caracteres.)", required = true)
 	@NotEmpty
 	@Email
 	@Length(max = 100)
 	private final String email;
+
+	@ApiModelProperty(notes = "Assunto que motiva o contato. (Min. 3 e Máx. 100 caracteres.)", required = true)
 	@NotBlank
 	@Length(min = 3, max = 100)
 	private final String assunto;
+
+	@ApiModelProperty(notes = "Conteúdo da mensagem. (Min. 10 e Máx. 1000 caracteres.)", required = true)
 	@NotBlank
 	@Length(min = 10, max = 1000)
 	private final String mensagem;

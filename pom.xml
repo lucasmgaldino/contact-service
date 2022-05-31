@@ -17,7 +17,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<!-- Para corrigir vulnerabilidade: https://spring.io/blog/2021/12/10/log4j2-vulnerability-and-spring-boot  -->
-		<log4j2.version>2.16.0</log4j2.version>
+		<log4j2.version>2.17.0</log4j2.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,6 +54,16 @@
 		<dependency>
 		    <groupId>com.sendgrid</groupId>
 		    <artifactId>sendgrid-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 

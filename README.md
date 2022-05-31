@@ -40,4 +40,10 @@ um serviço especializado (externo à aplicação).
 * [Lombok (1.18.22)](https://projectlombok.org/setup/maven)
 * [Mustache Java (0.9.10)](https://github.com/spullara/mustache.java)
 
+## Documentação da API
+
+Foi utilizado o [Swagger](https://swagger.io/) para documentar a API. Após colocar o projeto em execução, será 
+possível acessar a interface gráfica do Swagger no seguinte endereço: http://localhost:8080/swagger-ui/.
+
+## Como Executar
 
