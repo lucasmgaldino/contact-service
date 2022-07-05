@@ -8,10 +8,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.Length;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.ToString;
-import org.hibernate.validator.constraints.Length;
 
 /**
  * @author Lucas Mariano
@@ -21,25 +22,25 @@ import org.hibernate.validator.constraints.Length;
 @ToString
 public class ContatoRequest {
 
-	@ApiModelProperty(notes = "Nome completo do contactante. (Min. 3 e Máx. 100 caracteres.)", required = true)
+	@Schema(description = "Nome completo do contactante.", maxLength = 100, minLength = 3, required = true, example = "Fulano de Tal da Silva")
 	@NotBlank
-	@Length(min = 3, max = 100)
+	@Length(min = 3, max = 100, message = "O nome deve ter no mínimo {min} e no máximo {max} caracteres.")
 	private final String nome;
 
-	@ApiModelProperty(notes = "Email do contactante. (Máx. 100 caracteres.)", required = true)
+	@Schema(description = "Email do contactante.", maxLength = 100, minLength = 3, required = true, nullable = false, example = "fulano.silva@email.com")
 	@NotEmpty
 	@Email
-	@Length(max = 100)
+	@Length(max = 100, message = "O email deve ter no máximo {max} caracteres.")
 	private final String email;
 
-	@ApiModelProperty(notes = "Assunto que motiva o contato. (Min. 3 e Máx. 100 caracteres.)", required = true)
+	@Schema(description = "Assunto que motiva o contato.", maxLength = 100, minLength = 3, required = true, nullable = false, example = "Dúvida")
 	@NotBlank
-	@Length(min = 3, max = 100)
+	@Length(min = 3, max = 100, message = "O assunto deve ter no mínimo {min} e no máximo {max} caracteres.")
 	private final String assunto;
 
-	@ApiModelProperty(notes = "Conteúdo da mensagem. (Min. 10 e Máx. 1000 caracteres.)", required = true)
+	@Schema(description = "Conteúdo da mensagem.", maxLength = 1000, minLength = 10, required = true, nullable = false, example = "Estou com dúvida sobre determinado produto.")
 	@NotBlank
-	@Length(min = 10, max = 1000)
+	@Length(min = 10, max = 1000, message = "A mensagem deve ter no mínimo {min} e no máximo {max} caracteres.")
 	private final String mensagem;
 
 	/**
